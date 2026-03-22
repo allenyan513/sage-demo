@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, Brain, User, Sparkles, ChevronRight, GraduationCap, Briefcase, Zap, Star, Plus, Shield } from "lucide-react";
+import { Search, Brain, User, Sparkles, ChevronRight, GraduationCap, Briefcase, Zap, Star, Plus, Shield, Upload, UserCircle, MessageSquare, Target, ArrowRight } from "lucide-react";
 import { MENTORS, CATEGORIES } from "@/lib/mentors";
 import MentorCard from "@/components/MentorCard";
 import ProfileModal from "@/components/ProfileModal";
@@ -159,6 +159,68 @@ export default function HomePage() {
             <p>No mentors found matching your search.</p>
           </div>
         )}
+
+        {/* How It Works */}
+        <div className="mt-10">
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-8">
+            <h2 className="text-center text-lg font-bold text-gray-900 mb-1">How Mentora Works</h2>
+            <p className="text-center text-sm text-gray-500 mb-8">Dual-context AI mentorship in four steps</p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-0 relative">
+              {/* Connector arrows — desktop only */}
+              <div className="hidden sm:block absolute top-8 left-[25%] right-[25%] h-[2px]">
+                <div className="flex items-center justify-between h-full px-6">
+                  {[0, 1, 2].map((i) => (
+                    <div key={i} className="flex-1 flex items-center">
+                      <div className="flex-1 h-[2px] bg-gradient-to-r from-emerald-300 to-emerald-400" />
+                      <ArrowRight className="w-3.5 h-3.5 text-emerald-400 -ml-0.5 flex-shrink-0" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Step 1 */}
+              <div className="flex flex-col items-center text-center px-2">
+                <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-3 relative z-10">
+                  <Upload className="w-7 h-7 text-emerald-600" />
+                </div>
+                <span className="text-xs font-semibold text-emerald-600 mb-1">Step 1</span>
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Expert Uploads Knowledge</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">Mentors contribute approved materials, frameworks, and decision-making style</p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex flex-col items-center text-center px-2">
+                <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center mb-3 relative z-10">
+                  <UserCircle className="w-7 h-7 text-blue-600" />
+                </div>
+                <span className="text-xs font-semibold text-blue-600 mb-1">Step 2</span>
+                <h3 className="text-sm font-bold text-gray-900 mb-1">You Share Your Context</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">Background, goals, constraints, and current challenges shape your experience</p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex flex-col items-center text-center px-2">
+                <div className="w-16 h-16 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center mb-3 relative z-10">
+                  <MessageSquare className="w-7 h-7 text-purple-600" />
+                </div>
+                <span className="text-xs font-semibold text-purple-600 mb-1">Step 3</span>
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Choose Your Mentor</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">Pick the expert perspective that matches your needs and trusted judgment style</p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="flex flex-col items-center text-center px-2">
+                <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center mb-3 relative z-10">
+                  <Target className="w-7 h-7 text-amber-600" />
+                </div>
+                <span className="text-xs font-semibold text-amber-600 mb-1">Step 4</span>
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Get Tailored Guidance</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">Dual-context reasoning delivers advice shaped by expert insight and your situation</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Admin Link */}
         <div className="text-center pt-8 border-t border-gray-200 mt-8">
