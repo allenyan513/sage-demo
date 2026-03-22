@@ -1,0 +1,137 @@
+"use client";
+
+import { useState } from "react";
+import { Search, Brain, User, Sparkles, ChevronRight, GraduationCap, Briefcase, Zap, Star } from "lucide-react";
+import { MENTORS, CATEGORIES } from "@/lib/mentors";
+import MentorCard from "@/components/MentorCard";
+import ProfileModal from "@/components/ProfileModal";
+
+const CATEGORY_ICONS = {
+  all: Sparkles,
+  dalhousie: GraduationCap,
+  local: Briefcase,
+  bigtech: Zap,
+  legends: Star,
+};
+
+export default function HomePage() {
+  const [category, setCategory] = useState("all");
+  const [search, setSearch] = useState("");
+  const [showProfile, setShowProfile] = useState(false);
+
+  const filtered = MENTORS.filter((m) => {
+    const matchCat = category === "all" || m.category === category;
+    const matchSearch =
+      !search ||
+      m.name.toLowerCase().includes(search.toLowerCase()) ||
+      m.tags.some((t) => t.toLowerCase().includes(search.toLowerCase())) ||
+      m.org.toLowerCase().includes(search.toLowerCase());
+    return matchCat && matchSearch;
+  });
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {showProfile && <ProfileModal onClose={() => setShowProfile(false)} />}
+
+      {/* Header */}
+      <header className="bg-white border-b border-gray-100 sticky top-0 z-30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
+                <Brain className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-xl font-bold text-gray-900">Sage</span>
+              <span className="text-xs bg-emerald-100 text-emerald-700 font-medium px-2 py-0.5 rounded-full ml-1">
+                Beta
+              </span>
+            </div>
+            <button
+              onClick={() => setShowProfile(true)}
+              className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+            >
+              <User className="w-4 h-4" /> Build Your Profile
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-emerald-700 via-emerald-600 to-teal-600 text-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3">Your Personal Aristotle</h1>
+          <p className="text-emerald-100 text-lg max-w-xl mb-8">
+            AI-powered Digital Mentors built from real people&apos;s knowledge, experiences, and values.
+            Get personalized 1-on-1 guidance, anytime.
+          </p>
+          <div className="relative max-w-xl">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search mentors by name, expertise, or topic..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full bg-white/95 text-gray-900 placeholder-gray-400 rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Onboarding Banner */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 -mt-5">
+        <button
+          onClick={() => setShowProfile(true)}
+          className="w-full bg-white border border-emerald-200 rounded-xl p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow text-left"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <Sparkles className="w-5 h-5 text-amber-600" />
+            </div>
+            <div>
+              <p className="font-semibold text-gray-900 text-sm">Tell Sage about yourself for personalized mentorship</p>
+              <p className="text-xs text-gray-500">Share your goals, challenges, and background to get tailored advice</p>
+            </div>
+          </div>
+          <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
+        </button>
+      </div>
+
+      {/* Categories */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-8">
+        <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
+          {CATEGORIES.map((cat) => {
+            const Icon = CATEGORY_ICONS[cat.id];
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setCategory(cat.id)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                  category === cat.id
+                    ? "bg-emerald-600 text-white"
+                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                }`}
+              >
+                <Icon className="w-4 h-4" /> {cat.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Grid */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-6 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {filtered.map((mentor) => (
+            <MentorCard key={mentor.id} mentor={mentor} />
+          ))}
+        </div>
+        {filtered.length === 0 && (
+          <div className="text-center py-16 text-gray-400">
+            <Search className="w-10 h-10 mx-auto mb-3 opacity-50" />
+            <p>No mentors found matching your search.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
