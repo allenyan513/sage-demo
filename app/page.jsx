@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Brain, User, Sparkles, ChevronRight, GraduationCap, Briefcase, Zap, Star } from "lucide-react";
+import Link from "next/link";
+import { Search, Brain, User, Sparkles, ChevronRight, GraduationCap, Briefcase, Zap, Star, Plus, Shield } from "lucide-react";
 import { MENTORS, CATEGORIES } from "@/lib/mentors";
 import MentorCard from "@/components/MentorCard";
 import ProfileModal from "@/components/ProfileModal";
@@ -46,12 +47,20 @@ export default function HomePage() {
                 Beta
               </span>
             </div>
-            <button
-              onClick={() => setShowProfile(true)}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
-            >
-              <User className="w-4 h-4" /> Build Your Profile
-            </button>
+            <div className="flex items-center gap-3">
+              <Link
+                href="/onboarding"
+                className="border border-emerald-600 text-emerald-600 hover:bg-emerald-50 text-sm font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+              >
+                <Plus className="w-4 h-4" /> Become a Mentor
+              </Link>
+              <button
+                onClick={() => setShowProfile(true)}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+              >
+                <User className="w-4 h-4" /> Build Your Profile
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -118,6 +127,25 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Become a Mentor CTA */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-6">
+        <Link href="/onboarding"
+          className="block bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl p-5 text-white hover:from-emerald-700 hover:to-teal-700 transition-all hover:shadow-lg">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                <Plus className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="font-bold text-lg">Are you a thought leader, professor, or industry expert?</p>
+                <p className="text-emerald-100 text-sm">Create your AI mentor persona and reach thousands of mentees worldwide</p>
+              </div>
+            </div>
+            <ChevronRight className="w-6 h-6 text-emerald-200 flex-shrink-0 hidden sm:block" />
+          </div>
+        </Link>
+      </div>
+
       {/* Grid */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-6 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -131,6 +159,13 @@ export default function HomePage() {
             <p>No mentors found matching your search.</p>
           </div>
         )}
+
+        {/* Admin Link */}
+        <div className="text-center pt-8 border-t border-gray-200 mt-8">
+          <Link href="/admin" className="text-xs text-gray-400 hover:text-gray-600 flex items-center justify-center gap-1.5">
+            <Shield className="w-3.5 h-3.5" /> Admin Dashboard
+          </Link>
+        </div>
       </div>
     </div>
   );
