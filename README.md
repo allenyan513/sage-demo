@@ -1,12 +1,12 @@
-# Sage — Your Personal Aristotle
+# Mentora — Your Personal Aristotle
 
 AI-powered Digital Mentors built from real people's knowledge, experiences, and values. Get personalized 1-on-1 guidance, anytime.
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8) ![License](https://img.shields.io/badge/License-MIT-green)
 
-## What is Sage?
+## What is Mentora?
 
-Sage is a mentorship platform where users can chat with AI-powered digital versions of real mentors — professors, tech CEOs, and legendary investors. Each mentor's responses are grounded in their published work, interviews, and public knowledge.
+Mentora is a mentorship platform where users can chat with AI-powered digital versions of real mentors — professors, tech CEOs, and legendary investors. Each mentor's responses are grounded in their published work, interviews, and public knowledge.
 
 **Featured Mentors:**
 

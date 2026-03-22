@@ -173,7 +173,7 @@ export default function AdminPage() {
                 <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
                   <Brain className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl font-bold text-gray-900">Sage</span>
+                <span className="text-xl font-bold text-gray-900">Mentora</span>
               </Link>
               <span className="text-xs bg-gray-800 text-white font-medium px-2 py-0.5 rounded-full ml-1">
                 Admin

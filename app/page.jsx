@@ -42,7 +42,7 @@ export default function HomePage() {
               <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
                 <Brain className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">Sage</span>
+              <span className="text-xl font-bold text-gray-900">Mentora</span>
               <span className="text-xs bg-emerald-100 text-emerald-700 font-medium px-2 py-0.5 rounded-full ml-1">
                 Beta
               </span>
@@ -97,7 +97,7 @@ export default function HomePage() {
               <Sparkles className="w-5 h-5 text-amber-600" />
             </div>
             <div>
-              <p className="font-semibold text-gray-900 text-sm">Tell Sage about yourself for personalized mentorship</p>
+              <p className="font-semibold text-gray-900 text-sm">Tell Mentora about yourself for personalized mentorship</p>
               <p className="text-xs text-gray-500">Share your goals, challenges, and background to get tailored advice</p>
             </div>
           </div>

@@ -82,7 +82,7 @@ export default function OnboardingPage() {
               <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
                 <Brain className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">Sage</span>
+              <span className="text-xl font-bold text-gray-900">Mentora</span>
               <span className="text-xs bg-emerald-100 text-emerald-700 font-medium px-2 py-0.5 rounded-full ml-1">
                 Mentor Portal
               </span>
@@ -232,7 +232,7 @@ export default function OnboardingPage() {
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input type="checkbox" className="mt-1 w-4 h-4 text-emerald-600 rounded border-gray-300 focus:ring-emerald-500" />
-                  <span className="text-sm text-gray-600">I authorize Sage to access, analyze, and use my publicly available content from the selected sources to create my digital mentor profile. I can revoke access at any time.</span>
+                  <span className="text-sm text-gray-600">I authorize Mentora to access, analyze, and use my publicly available content from the selected sources to create my digital mentor profile. I can revoke access at any time.</span>
                 </label>
               </div>
             </div>
@@ -444,7 +444,7 @@ export default function OnboardingPage() {
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input type="checkbox" checked={agreedTerms} onChange={(e) => setAgreedTerms(e.target.checked)}
                     className="mt-1 w-4 h-4 text-emerald-600 rounded border-gray-300 focus:ring-emerald-500" />
-                  <span className="text-sm text-gray-600">I agree to the Sage Mentor Terms of Service. I confirm that I am authorized to share the provided content and that my profile information is accurate. I understand that my submission will be reviewed before going live.</span>
+                  <span className="text-sm text-gray-600">I agree to the Mentora Mentor Terms of Service. I confirm that I am authorized to share the provided content and that my profile information is accurate. I understand that my submission will be reviewed before going live.</span>
                 </label>
               </div>
             </div>

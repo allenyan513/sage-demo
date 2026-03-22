@@ -1,8 +1,8 @@
-# Sage Demo — CLAUDE.md
+# Mentora Demo — CLAUDE.md
 
 ## Project Overview
 
-Sage is an AI-powered digital mentorship platform. Users browse mentor profiles and have 1-on-1 chat conversations with AI versions of real people (professors, tech leaders, investors). This is a **frontend demo** — no backend API or real AI inference.
+Mentora is an AI-powered digital mentorship platform. Users browse mentor profiles and have 1-on-1 chat conversations with AI versions of real people (professors, tech leaders, investors). This is a **frontend demo** — no backend API or real AI inference.
 
 ## Tech Stack
 

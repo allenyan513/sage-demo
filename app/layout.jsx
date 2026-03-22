@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Sage — Your Personal Aristotle",
+  title: "Mentora — Your Personal Aristotle",
   description: "AI-powered Digital Mentors built from real people's knowledge, experiences, and values.",
 };
 
